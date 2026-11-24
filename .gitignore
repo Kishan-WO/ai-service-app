@@ -22,3 +22,6 @@ htmlcov/
 # keep the template, ignore real env files
 .env.*
 !.env.example
+
+# JavaScript packages (the frontend/ folder lives on main; ignore them on every branch)
+node_modules/
