@@ -18,6 +18,7 @@ from ai_service.core.middlewares import (
     register_error_handlers,
 )
 from ai_service.db.session import async_session_factory, engine
+from ai_service.services.job_queue import JobQueue
 from ai_service.services.llm import SettingsLLMRegistry
 from ai_service.services.llm_accounting import DbCallRecorder
 
@@ -28,6 +29,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None]:
     app.state.http_client = httpx.AsyncClient(timeout=httpx.Timeout(30.0, connect=5.0))
     # model clients are built on first use; every call they make is logged and saved to llm_calls
     app.state.llm = SettingsLLMRegistry(get_settings(), DbCallRecorder(async_session_factory))
+    app.state.job_queue = JobQueue(get_settings())  # connects to Redis when first used
     # one Qdrant client for the process, only when Qdrant is the chosen vector store
     settings = get_settings()
     app.state.qdrant = (
@@ -39,6 +41,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None]:
     try:
         yield
     finally:
+        await app.state.job_queue.aclose()
         if app.state.qdrant is not None:
             await app.state.qdrant.close()
         await app.state.llm.aclose()

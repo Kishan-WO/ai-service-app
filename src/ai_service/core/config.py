@@ -79,6 +79,12 @@ class Settings(BaseSettings):
     JINA_API_KEY: SecretStr | None = None
     JINA_EMBEDDING_MODEL: str = "jina-embeddings-v3"
     JINA_EMBEDDING_URL: str = "https://api.jina.ai/v1/embeddings"
+    # The ingestion job's batches and pace (Day 11), the values of my Day 9 run, a little under
+    # the limits of my key then (100,000 tokens and 100 requests a minute). Per process.
+    JINA_BATCH_TEXTS: int = Field(default=32, ge=1)
+    JINA_BATCH_TOKENS: int = Field(default=12_000, ge=1)
+    JINA_TOKENS_PER_MINUTE: int = Field(default=90_000, ge=1)
+    JINA_REQUESTS_PER_MINUTE: int = Field(default=90, ge=1)
 
     # Which store `POST /search` reads and document deletion cleans (Day 10, task 5). PostgreSQL
     # stays the main copy: before switching to qdrant, run scripts/copy_to_qdrant.py.
@@ -90,6 +96,27 @@ class Settings(BaseSettings):
     # not reuse connections to localhost). Docker Compose sets http://qdrant:6333 for the API.
     QDRANT_URL: str = "http://127.0.0.1:6333"
     QDRANT_COLLECTION: str = "chunks"
+
+    # Redis holds the job queue of the ingestion worker (Day 11). 6380 is the compose Redis seen
+    # from my machine; inside Docker Compose the API and the worker get redis://redis:6379/0.
+    REDIS_URL: str = "redis://127.0.0.1:6380/0"
+
+    # The ingestion job (Day 11). A job may wait minutes for the embedding limits, so its time
+    # limit is far above ARQ's default of 300 s. MAX_TRIES counts the first attempt too.
+    INGEST_TIMEOUT_SECONDS: int = Field(default=1800, ge=1)
+    INGEST_MAX_TRIES: int = Field(default=4, ge=1)
+    WORKER_MAX_JOBS: int = Field(default=2, ge=1)
+
+    # Chunking (Day 11). Sizes are content tokens of the BGE-M3 tokenizer. These are starting
+    # values; Day 12 compares settings on real questions. TOKENIZER_PATH: the tokenizer.json to
+    # use; empty means the copy in this machine's Hugging Face cache.
+    # auto: the Markdown chunker for .md files, the recursive one for PDF and text files
+    CHUNK_STRATEGY: Literal["auto", "fixed", "recursive", "markdown"] = "auto"
+    CHUNK_MAX_TOKENS: int = Field(default=400, ge=1)
+    CHUNK_OVERLAP_TOKENS: int = Field(default=60, ge=0)
+    TOKENIZER_PATH: str | None = None
+    # Task 3: put "document title > section path" before each chunk when it is embedded.
+    CHUNK_CONTEXT_HEADERS: bool = False
 
     # Second provider (Day 6). The SDKs' own retries are switched off: our wrapper retries, so
     # the numbers below are the only retry settings and the calls do not multiply.
@@ -123,6 +150,7 @@ class Settings(BaseSettings):
         "LLM_API_KEY",
         "ANTHROPIC_API_KEY",
         "JINA_API_KEY",
+        "TOKENIZER_PATH",
         "LLM_FALLBACK_BACKEND",
         mode="before",
     )

@@ -24,6 +24,17 @@ WORKDIR /app
 # Create a non-root user for security best practices
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 
+# The tokenizer that the chunkers count with (Day 11): BAAI/bge-m3 (MIT), one file, 17.1 MB.
+# The URL names one revision, so the file cannot change under us, and the build fails if the
+# bytes do not match the checksum. It stays above the application code, so that a code change
+# does not download it again.
+RUN mkdir -p /opt/bge-m3
+ADD --checksum=sha256:21106b6d7dab2952c1d496fb21d5dc9db75c28ed361a05f5020bbba27810dd08 \
+    --chmod=644 \
+    https://huggingface.co/BAAI/bge-m3/resolve/5617a9f61b028005a4858fdac845db406aefb181/tokenizer.json \
+    /opt/bge-m3/tokenizer.json
+ENV TOKENIZER_PATH=/opt/bge-m3/tokenizer.json
+
 # Copy virtual environment from builder stage
 COPY --from=builder --chown=appuser:appuser /app /app
 

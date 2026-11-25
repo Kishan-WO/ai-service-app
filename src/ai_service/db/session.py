@@ -18,6 +18,9 @@ settings = get_settings()
 engine: AsyncEngine = create_async_engine(
     settings.DATABASE_URL,
     echo=settings.DEBUG,
+    # Never write SQL values to logs or error messages: they are document texts, whole files
+    # and password hashes. With DEBUG on, the statements are still shown.
+    hide_parameters=True,
     pool_pre_ping=True,
 )
 

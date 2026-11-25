@@ -67,6 +67,9 @@ services:
     environment:
       - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/ai_service
       - QDRANT_URL=http://qdrant:6333
+      - REDIS_URL=redis://redis:6379/0
+      # the file built into the image; set here so that an empty value in .env cannot hide it
+      - TOKENIZER_PATH=/opt/bge-m3/tokenizer.json
       # pgvector (default) or qdrant, from the shell or .env
       - VECTOR_STORE=${VECTOR_STORE:-pgvector}
     volumes:
@@ -80,6 +83,39 @@ services:
       timeout: 5s
       retries: 5
       start_period: 20s
+
+  worker:
+    # Day 11: runs the jobs that the API puts in Redis (ARQ). Same image and code as the API.
+    # It does not reload by itself: after a code change, `docker compose restart worker`.
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-service-worker
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy  # the api applies the database migrations first
+      redis:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/ai_service
+      - REDIS_URL=redis://redis:6379/0
+      # the file built into the image; set here so that an empty value in .env cannot hide it
+      - TOKENIZER_PATH=/opt/bge-m3/tokenizer.json
+      - QDRANT_URL=http://qdrant:6333
+      - VECTOR_STORE=${VECTOR_STORE:-pgvector}
+    volumes:
+      - ./src:/app/src
+    command: ["arq", "ai_service.worker.WorkerSettings"]
+    healthcheck:
+      # succeeds only while a worker keeps writing its "alive" key in Redis
+      test: ["CMD", "arq", "ai_service.worker.WorkerSettings", "--check"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
 
   frontend:
     # the React app (./frontend): nginx serves the built site and forwards /api to the api service

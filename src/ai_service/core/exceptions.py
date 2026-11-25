@@ -142,3 +142,44 @@ class VectorStoreError(AppError):
     code = "VECTOR_STORE_UNAVAILABLE"
     message = "The vector store is not available. Please try again."
 
+
+class IngestionJobNotFoundError(AppError):
+    """Also used for another tenant's job: never reveal that it exists."""
+
+    status_code = 404
+    code = "INGESTION_JOB_NOT_FOUND"
+    message = "Ingestion job not found."
+
+
+class AmbiguousSourceError(AppError):
+    status_code = 409
+    code = "AMBIGUOUS_SOURCE"
+
+    def __init__(self, source: str) -> None:
+        super().__init__(
+            "More than one document has this source, so it is not clear which one to replace.",
+            details={"source": source},
+        )
+
+
+class QueueUnavailableError(AppError):
+    status_code = 503
+    code = "QUEUE_UNAVAILABLE"
+
+    def __init__(self, job_id: object, what: str = "file") -> None:
+        super().__init__(
+            f"The {what} could not be queued for processing. Please send it again.",
+            details={"job_id": str(job_id)},
+        )
+
+
+class InvalidIngestRequestError(AppError):
+    status_code = 422
+    code = "INVALID_INGEST_REQUEST"
+
+
+class InvalidLinkError(AppError):
+    """The message comes from the link checks, which never say what a name leads to."""
+
+    status_code = 422
+    code = "INVALID_LINK"
