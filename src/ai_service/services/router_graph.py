@@ -15,7 +15,7 @@ fallback, limits, cost logging stay as they are), so LangGraph adds no prompt an
 import logging
 import time
 from dataclasses import dataclass
-from typing import Any, TypedDict
+from typing import Any, TypedDict, cast
 
 from langgraph.graph import END, START, StateGraph
 from langgraph.runtime import Runtime
@@ -176,6 +176,10 @@ def after_classify(state: RouterState) -> str:
 
 def build_router_graph(*, checkpointer: Any = None, interrupt_before: list[str] | None = None):  # type: ignore[no-untyped-def]
     """Compile the graph once; pass `RouterDeps` as the run's context on every call."""
+    # LangGraph accepts a state class that has __required_keys__ and __optional_keys__. Every
+    # TypedDict has them when the code runs (and mypy accepts this line), but Pyrefly, the
+    # editor's checker, does not match any TypedDict to that rule. So only this line is ignored.
+    # pyrefly: ignore[bad-specialization]
     graph = StateGraph(RouterState, context_schema=RouterDeps)
     graph.add_node("rules", rules)
     graph.add_node("classify", classify)
@@ -225,5 +229,6 @@ async def route_with_graph(
         large_max_tokens,
     )
     started = time.perf_counter()
-    state = await ROUTER_GRAPH.ainvoke({"message": message}, context=deps)
+    # ainvoke is typed as returning a plain dict; at the end of the graph it holds the state.
+    state = cast(RouterState, await ROUTER_GRAPH.ainvoke({"message": message}, context=deps))
     return result_from_state(state, round((time.perf_counter() - started) * 1000, 1))
