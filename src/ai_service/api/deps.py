@@ -15,6 +15,8 @@ from ai_service.core.security import decode_access_token
 from ai_service.db.models import User
 from ai_service.db.session import async_session_factory, get_db_session
 from ai_service.services.llm import LLMRegistry
+from ai_service.services.qdrant_store import QdrantStore
+from ai_service.services.vector_store import PgVectorStore, VectorStore
 
 DbSession = Annotated[AsyncSession, Depends(get_db_session)]
 AppSettings = Annotated[Settings, Depends(get_settings)]
@@ -55,11 +57,23 @@ CurrentUser = Annotated[User, Depends(get_current_user)]
 
 def get_http_client(request: Request) -> httpx.AsyncClient:
     """The shared client created once in the app lifespan."""
-    client: httpx.AsyncClient = request.app.state.http_client
+    client: httpx.AsyncClient | None = getattr(request.app.state, "http_client", None)
+    if client is None:
+        client = httpx.AsyncClient(timeout=httpx.Timeout(30.0, connect=5.0))
     return client
 
 
 HttpClient = Annotated[httpx.AsyncClient, Depends(get_http_client)]
+
+
+def get_vector_store(request: Request, session: DbSession, settings: AppSettings) -> VectorStore:
+    """The store chosen by VECTOR_STORE: search reads it, document deletion cleans it."""
+    if settings.VECTOR_STORE == "qdrant":
+        return QdrantStore(request.app.state.qdrant, settings.QDRANT_COLLECTION)
+    return PgVectorStore(session)
+
+
+VectorStoreDep = Annotated[VectorStore, Depends(get_vector_store)]
 
 
 def get_llm_registry(request: Request) -> LLMRegistry:

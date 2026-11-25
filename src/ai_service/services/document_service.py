@@ -20,6 +20,7 @@ from ai_service.core.exceptions import (
     UnsupportedFileTypeError,
 )
 from ai_service.db.models import Document
+from ai_service.services.vector_store import VectorStore
 
 ALLOWED_SUFFIXES = {".txt", ".md", ".pdf"}
 _CHUNK_SIZE = 1024 * 1024
@@ -147,8 +148,15 @@ async def get_document(
 
 
 async def delete_document(
-    session: AsyncSession, *, tenant_id: uuid.UUID, document_id: uuid.UUID
+    session: AsyncSession, store: VectorStore, *, tenant_id: uuid.UUID, document_id: uuid.UUID
 ) -> None:
+    """Remove a document and its vectors.
+
+    The order matters when the store is not the database: the vectors go first. If the store
+    fails, nothing is deleted and the request can be repeated. The other order could leave the
+    text of a deleted document searchable.
+    """
     document = await get_document(session, tenant_id=tenant_id, document_id=document_id)
+    await store.delete_document(tenant_id=tenant_id, document_id=document_id)
     await session.delete(document)
     await session.commit()

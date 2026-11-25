@@ -1,0 +1,61 @@
+[
+  {
+    "store": "pgvector",
+    "limit": 5,
+    "exact_results_returned": 100,
+    "exact_results": 100,
+    "missed_by_query": {},
+    "median_ms": 4.73,
+    "p95_ms": 5.98,
+    "timed_searches": 200,
+    "searches_answered_by": {
+      "ix_chunks_tenant_id": 1,
+      "ix_chunks_embedding_hnsw": 220,
+      "full table scan": 20
+    }
+  },
+  {
+    "store": "qdrant",
+    "limit": 5,
+    "exact_results_returned": 99,
+    "exact_results": 100,
+    "missed_by_query": {
+      "18": 1
+    },
+    "median_ms": 4.76,
+    "p95_ms": 6.3,
+    "timed_searches": 200,
+    "searches_answered_by": {
+      "filtered_large_cardinality": 880
+    }
+  },
+  {
+    "store": "pgvector",
+    "limit": 50,
+    "exact_results_returned": 1000,
+    "exact_results": 1000,
+    "missed_by_query": {},
+    "median_ms": 20.99,
+    "p95_ms": 23.3,
+    "timed_searches": 200,
+    "searches_answered_by": {
+      "ix_chunks_embedding_hnsw": 220
+    }
+  },
+  {
+    "store": "qdrant",
+    "limit": 50,
+    "exact_results_returned": 990,
+    "exact_results": 1000,
+    "missed_by_query": {
+      "2": 1,
+      "18": 9
+    },
+    "median_ms": 6.54,
+    "p95_ms": 9.5,
+    "timed_searches": 200,
+    "searches_answered_by": {
+      "filtered_large_cardinality": 880
+    }
+  }
+]

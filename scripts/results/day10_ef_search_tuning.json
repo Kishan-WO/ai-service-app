@@ -1,0 +1,132 @@
+[
+  {
+    "ef_search": 5,
+    "chunks_shared_with_exact": 93,
+    "chunks_in_exact": 100,
+    "hits": 18,
+    "recall_at_5": 0.9,
+    "median_ms": 4.74,
+    "p95_ms": 8.74,
+    "rows_for_limit_50": {
+      "min": 5,
+      "max": 5
+    },
+    "index_use": {
+      "ix_chunks_embedding_hnsw": 240
+    },
+    "lost_chunks_by_query": {
+      "11": 1,
+      "14": 1,
+      "17": 5
+    },
+    "unstable_queries": 0
+  },
+  {
+    "ef_search": 10,
+    "chunks_shared_with_exact": 100,
+    "chunks_in_exact": 100,
+    "hits": 19,
+    "recall_at_5": 0.95,
+    "median_ms": 4.47,
+    "p95_ms": 5.67,
+    "rows_for_limit_50": {
+      "min": 10,
+      "max": 10
+    },
+    "index_use": {
+      "ix_chunks_embedding_hnsw": 240
+    },
+    "lost_chunks_by_query": {},
+    "unstable_queries": 0
+  },
+  {
+    "ef_search": 20,
+    "chunks_shared_with_exact": 100,
+    "chunks_in_exact": 100,
+    "hits": 19,
+    "recall_at_5": 0.95,
+    "median_ms": 4.7,
+    "p95_ms": 5.94,
+    "rows_for_limit_50": {
+      "min": 19,
+      "max": 20
+    },
+    "index_use": {
+      "ix_chunks_embedding_hnsw": 240
+    },
+    "lost_chunks_by_query": {},
+    "unstable_queries": 0
+  },
+  {
+    "ef_search": 40,
+    "chunks_shared_with_exact": 100,
+    "chunks_in_exact": 100,
+    "hits": 19,
+    "recall_at_5": 0.95,
+    "median_ms": 4.96,
+    "p95_ms": 8.87,
+    "rows_for_limit_50": {
+      "min": 39,
+      "max": 40
+    },
+    "index_use": {
+      "ix_chunks_embedding_hnsw": 240
+    },
+    "lost_chunks_by_query": {},
+    "unstable_queries": 0
+  },
+  {
+    "ef_search": 100,
+    "chunks_shared_with_exact": 100,
+    "chunks_in_exact": 100,
+    "hits": 19,
+    "recall_at_5": 0.95,
+    "median_ms": 5.27,
+    "p95_ms": 6.99,
+    "rows_for_limit_50": {
+      "min": 50,
+      "max": 50
+    },
+    "index_use": {
+      "ix_chunks_embedding_hnsw": 240
+    },
+    "lost_chunks_by_query": {},
+    "unstable_queries": 0
+  },
+  {
+    "ef_search": 200,
+    "chunks_shared_with_exact": 100,
+    "chunks_in_exact": 100,
+    "hits": 19,
+    "recall_at_5": 0.95,
+    "median_ms": 5.84,
+    "p95_ms": 8.93,
+    "rows_for_limit_50": {
+      "min": 50,
+      "max": 50
+    },
+    "index_use": {
+      "ix_chunks_embedding_hnsw": 240
+    },
+    "lost_chunks_by_query": {},
+    "unstable_queries": 0
+  },
+  {
+    "ef_search": 400,
+    "chunks_shared_with_exact": 100,
+    "chunks_in_exact": 100,
+    "hits": 19,
+    "recall_at_5": 0.95,
+    "median_ms": 6.1,
+    "p95_ms": 7.33,
+    "rows_for_limit_50": {
+      "min": 50,
+      "max": 50
+    },
+    "index_use": {
+      "ix_chunks_embedding_hnsw": 240
+    },
+    "lost_chunks_by_query": {},
+    "unstable_queries": 0
+  }
+]

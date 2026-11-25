@@ -1,0 +1,14 @@
+{
+  "qdrant_server": "1.20.2",
+  "qdrant_client": "1.20.0",
+  "points": 2097,
+  "indexed_vectors": 3219,
+  "recall_at_5": 0.95,
+  "chunks_shared_with_exact": 99,
+  "chunks_in_exact": 100,
+  "queries_identical_to_exact": 19,
+  "different_queries": [
+    18
+  ],
+  "largest_score_gap": 0.0
+}

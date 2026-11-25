@@ -1,0 +1,59 @@
+{
+  "exact": {
+    "settings": [
+      "set local enable_indexscan = off"
+    ],
+    "searches": 220,
+    "index_use": {
+      "full table scan": 220
+    },
+    "recall_at_5": 0.95,
+    "hits": 19,
+    "chunks_shared_with_exact": 100,
+    "chunks_in_exact": 100,
+    "queries_identical_to_exact": 20,
+    "different_queries": [],
+    "unstable_queries": 0,
+    "median_ms": 16.76,
+    "p95_ms": 19.79,
+    "timed_searches": 200
+  },
+  "planner": {
+    "settings": [],
+    "searches": 220,
+    "index_use": {
+      "ix_chunks_embedding_hnsw": 220
+    },
+    "recall_at_5": 0.95,
+    "hits": 19,
+    "chunks_shared_with_exact": 100,
+    "chunks_in_exact": 100,
+    "queries_identical_to_exact": 20,
+    "different_queries": [],
+    "unstable_queries": 0,
+    "median_ms": 3.3,
+    "p95_ms": 4.0,
+    "timed_searches": 200
+  },
+  "hnsw": {
+    "settings": [
+      "set local enable_seqscan = off",
+      "set local enable_bitmapscan = off",
+      "set local enable_sort = off"
+    ],
+    "searches": 220,
+    "index_use": {
+      "ix_chunks_embedding_hnsw": 220
+    },
+    "recall_at_5": 0.95,
+    "hits": 19,
+    "chunks_shared_with_exact": 100,
+    "chunks_in_exact": 100,
+    "queries_identical_to_exact": 20,
+    "different_queries": [],
+    "unstable_queries": 0,
+    "median_ms": 3.39,
+    "p95_ms": 4.0,
+    "timed_searches": 200
+  }
+}

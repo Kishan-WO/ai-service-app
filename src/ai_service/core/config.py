@@ -75,6 +75,22 @@ class Settings(BaseSettings):
     # How many of the latest stored messages are sent to the model on each turn.
     CHAT_HISTORY_LIMIT: int = Field(default=20, ge=1)
 
+    # Embeddings (Day 10)
+    JINA_API_KEY: SecretStr | None = None
+    JINA_EMBEDDING_MODEL: str = "jina-embeddings-v3"
+    JINA_EMBEDDING_URL: str = "https://api.jina.ai/v1/embeddings"
+
+    # Which store `POST /search` reads and document deletion cleans (Day 10, task 5). PostgreSQL
+    # stays the main copy: before switching to qdrant, run scripts/copy_to_qdrant.py.
+    VECTOR_STORE: Literal["pgvector", "qdrant"] = "pgvector"
+
+    # Qdrant, the second vector store (Day 10, task 5)
+    # 127.0.0.1, not "localhost": Qdrant is published on IPv4 only. On my Windows machine
+    # "localhost" tries ::1 first, and that cost about 260 ms on every request (qdrant-client did
+    # not reuse connections to localhost). Docker Compose sets http://qdrant:6333 for the API.
+    QDRANT_URL: str = "http://127.0.0.1:6333"
+    QDRANT_COLLECTION: str = "chunks"
+
     # Second provider (Day 6). The SDKs' own retries are switched off: our wrapper retries, so
     # the numbers below are the only retry settings and the calls do not multiply.
     ANTHROPIC_API_KEY: SecretStr | None = None
@@ -103,7 +119,13 @@ class Settings(BaseSettings):
         }
     )
 
-    @field_validator("LLM_API_KEY", "ANTHROPIC_API_KEY", "LLM_FALLBACK_BACKEND", mode="before")
+    @field_validator(
+        "LLM_API_KEY",
+        "ANTHROPIC_API_KEY",
+        "JINA_API_KEY",
+        "LLM_FALLBACK_BACKEND",
+        mode="before",
+    )
     @classmethod
     def blank_means_not_set(cls, v: object) -> object:
         # `KEY=` in a .env file arrives as "", which is "not configured", not an empty key

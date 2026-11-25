@@ -1,11 +1,13 @@
 """FastAPI application factory."""
 
+import logging
 from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
 
 import httpx
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from qdrant_client import AsyncQdrantClient
 
 from ai_service.api.v1.router import api_router
 from ai_service.core.config import get_settings
@@ -26,9 +28,19 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None]:
     app.state.http_client = httpx.AsyncClient(timeout=httpx.Timeout(30.0, connect=5.0))
     # model clients are built on first use; every call they make is logged and saved to llm_calls
     app.state.llm = SettingsLLMRegistry(get_settings(), DbCallRecorder(async_session_factory))
+    # one Qdrant client for the process, only when Qdrant is the chosen vector store
+    settings = get_settings()
+    app.state.qdrant = (
+        AsyncQdrantClient(url=settings.QDRANT_URL, timeout=10)
+        if settings.VECTOR_STORE == "qdrant"
+        else None
+    )
+    logging.getLogger("ai_service").info("vector store: %s", settings.VECTOR_STORE)
     try:
         yield
     finally:
+        if app.state.qdrant is not None:
+            await app.state.qdrant.close()
         await app.state.llm.aclose()
         await app.state.http_client.aclose()
         await engine.dispose()

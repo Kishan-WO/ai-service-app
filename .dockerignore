@@ -12,3 +12,4 @@ notes/
 
 # the React app has its own image (frontend/Dockerfile)
 frontend/
+.env.*

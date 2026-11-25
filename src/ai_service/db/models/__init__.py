@@ -1,5 +1,6 @@
 """Database models package."""
 
+from ai_service.db.models.chunk import Chunk
 from ai_service.db.models.conversation import Conversation, Message
 from ai_service.db.models.document import Document
 from ai_service.db.models.llm_call import LLMCall
@@ -10,6 +11,7 @@ __all__ = [
     "Tenant",
     "User",
     "Document",
+    "Chunk",
     "Conversation",
     "Message",
     "LLMCall",

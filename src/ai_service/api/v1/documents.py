@@ -5,7 +5,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, File, Form, Query, Response, UploadFile, status
 
-from ai_service.api.deps import AppSettings, CurrentUser, DbSession
+from ai_service.api.deps import AppSettings, CurrentUser, DbSession, VectorStoreDep
 from ai_service.schemas.document import DocumentDetail, DocumentList, DocumentResponse
 from ai_service.services import document_service
 
@@ -62,9 +62,9 @@ async def get_document(
 
 @router.delete("/{document_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_document(
-    document_id: uuid.UUID, user: CurrentUser, session: DbSession
+    document_id: uuid.UUID, user: CurrentUser, session: DbSession, store: VectorStoreDep
 ) -> Response:
     await document_service.delete_document(
-        session, tenant_id=user.tenant_id, document_id=document_id
+        session, store, tenant_id=user.tenant_id, document_id=document_id
     )
     return Response(status_code=status.HTTP_204_NO_CONTENT)

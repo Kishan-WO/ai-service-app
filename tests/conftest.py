@@ -14,6 +14,8 @@ import httpx  # noqa: E402
 import pytest  # noqa: E402
 import pytest_asyncio  # noqa: E402
 from fastapi import FastAPI  # noqa: E402
+from sqlalchemy import event  # noqa: E402
+from sqlalchemy.engine import Engine  # noqa: E402
 from sqlalchemy.ext.asyncio import (  # noqa: E402
     AsyncEngine,
     AsyncSession,
@@ -21,6 +23,14 @@ from sqlalchemy.ext.asyncio import (  # noqa: E402
     create_async_engine,
 )
 from sqlalchemy.pool import StaticPool  # noqa: E402
+
+
+@event.listens_for(Engine, "connect")
+def set_sqlite_pragma(dbapi_connection: object, connection_record: object) -> None:
+    if hasattr(dbapi_connection, "cursor"):
+        cursor = dbapi_connection.cursor()
+        cursor.execute("PRAGMA foreign_keys=ON")
+        cursor.close()
 
 from ai_service.api.deps import get_llm_registry, get_session_factory  # noqa: E402
 from ai_service.core.config import get_settings  # noqa: E402

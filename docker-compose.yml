@@ -31,6 +31,24 @@ services:
       timeout: 5s
       retries: 5
 
+  qdrant:
+    # Day 10 task 5: a second vector store, to compare with pgvector. Not used unless chosen by config.
+    image: qdrant/qdrant:v1.20.2
+    container_name: ai-service-qdrant
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6333:6333"  # this machine only: Qdrant has no authentication by default
+    environment:
+      QDRANT__TELEMETRY_DISABLED: "true"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      # the image has no curl or wget, so bash opens the HTTP connection itself
+      test: ["CMD", "bash", "-c", 'exec 3<>/dev/tcp/127.0.0.1/6333 && printf "GET /readyz HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n" >&3 && grep -q "200 OK" <&3']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
   api:
     build:
       context: .
@@ -48,6 +66,9 @@ services:
       - .env
     environment:
       - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/ai_service
+      - QDRANT_URL=http://qdrant:6333
+      # pgvector (default) or qdrant, from the shell or .env
+      - VECTOR_STORE=${VECTOR_STORE:-pgvector}
     volumes:
       - ./src:/app/src
     # apply database migrations first, then start the API (stops here if a migration fails)
@@ -75,4 +96,5 @@ services:
 volumes:
   postgres_data:
   redis_data:
+  qdrant_data:
 

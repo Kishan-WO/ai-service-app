@@ -1,0 +1,190 @@
+[
+ {
+  "id": 1,
+  "language": "en",
+  "query": "How do I define a path parameter in FastAPI?",
+  "correct_docs": [
+   "fastapi-docs/tutorial/path-params.md"
+  ],
+  "notes": "English, FastAPI"
+ },
+ {
+  "id": 2,
+  "language": "en",
+  "query": "How do I validate request body fields with Pydantic?",
+  "correct_docs": [
+   "fastapi-docs/tutorial/body.md",
+   "fastapi-docs/tutorial/body-fields.md"
+  ],
+  "notes": "English, FastAPI request body"
+ },
+ {
+  "id": 3,
+  "language": "en",
+  "query": "What is dependency injection in FastAPI?",
+  "correct_docs": [
+   "fastapi-docs/tutorial/dependencies/index.md"
+  ],
+  "notes": "English, FastAPI"
+ },
+ {
+  "id": 4,
+  "language": "en",
+  "query": "How do I return a streaming response from a FastAPI route?",
+  "correct_docs": [
+   "fastapi-docs/advanced/stream-data.md",
+   "fastapi-docs/advanced/custom-response.md"
+  ],
+  "notes": "English, FastAPI"
+ },
+ {
+  "id": 5,
+  "language": "en",
+  "query": "How do I write an async endpoint in FastAPI?",
+  "correct_docs": [
+   "fastapi-docs/async.md"
+  ],
+  "notes": "English, FastAPI"
+ },
+ {
+  "id": 6,
+  "language": "en",
+  "query": "How do I add middleware to a FastAPI application?",
+  "correct_docs": [
+   "fastapi-docs/tutorial/middleware.md",
+   "fastapi-docs/advanced/middleware.md"
+  ],
+  "notes": "English, FastAPI"
+ },
+ {
+  "id": 7,
+  "language": "en",
+  "query": "How does Pydantic handle field validation errors?",
+  "correct_docs": [
+   "pydantic-docs/errors/validation_errors.md"
+  ],
+  "notes": "English, Pydantic errors"
+ },
+ {
+  "id": 8,
+  "language": "en",
+  "query": "What is a Pydantic BaseModel and how do I use it?",
+  "correct_docs": [
+   "pydantic-docs/concepts/models.md"
+  ],
+  "notes": "English, Pydantic"
+ },
+ {
+  "id": 9,
+  "language": "en",
+  "query": "How do I use computed fields in Pydantic v2?",
+  "correct_docs": [
+   "pydantic-docs/concepts/fields.md",
+   "pydantic-docs/concepts/models.md"
+  ],
+  "notes": "English, Pydantic"
+ },
+ {
+  "id": 10,
+  "language": "en",
+  "query": "How do I configure Pydantic settings from environment variables?",
+  "correct_docs": [
+   "pydantic-docs/concepts/pydantic_settings.md",
+   "fastapi-docs/advanced/settings.md"
+  ],
+  "notes": "English, settings (two valid pages)"
+ },
+ {
+  "id": 11,
+  "language": "en",
+  "query": "What is retrieval-augmented generation and why does it reduce hallucinations?",
+  "correct_docs": [
+   "arxiv-papers/2601.05264",
+   "arxiv-papers/2504.08748"
+  ],
+  "notes": "English, paper (RAG surveys)"
+ },
+ {
+  "id": 12,
+  "language": "en",
+  "query": "How does the size of a text chunk affect retrieval-augmented generation?",
+  "correct_docs": [
+   "arxiv-papers/2607.24767"
+  ],
+  "notes": "English, paper (replaced: the old query had no clear answer in the corpus)"
+ },
+ {
+  "id": 13,
+  "language": "en",
+  "query": "What is the solubility product constant (Ksp) of silver chloride?",
+  "correct_docs": [
+   "openstax-chemistry-2e/appendix-j-solubility-products"
+  ],
+  "notes": "English, Chemistry table (replaced: the old query about HNSW had no answer in the corpus)"
+ },
+ {
+  "id": 14,
+  "language": "en",
+  "query": "What is the standard enthalpy of formation of liquid water?",
+  "correct_docs": [
+   "openstax-chemistry-2e/appendix-g-standard-thermodynamic-properties-for-selected-su"
+  ],
+  "notes": "English, Chemistry table (replaced)"
+ },
+ {
+  "id": 15,
+  "language": "hinglish",
+  "query": "FastAPI mein OAuth2 password bearer kaise use karte hain?",
+  "correct_docs": [
+   "fastapi-docs/tutorial/security/simple-oauth2.md",
+   "fastapi-docs/tutorial/security/first-steps.md"
+  ],
+  "notes": "Hinglish, FastAPI security"
+ },
+ {
+  "id": 16,
+  "language": "hinglish",
+  "query": "Pydantic model mein optional field kaise banate hain?",
+  "correct_docs": [
+   "pydantic-docs/concepts/models.md",
+   "fastapi-docs/tutorial/body.md"
+  ],
+  "notes": "Hinglish, Pydantic (relabelled)"
+ },
+ {
+  "id": 17,
+  "language": "hinglish",
+  "query": "FastAPI ke saath background tasks kaise chalate hain?",
+  "correct_docs": [
+   "fastapi-docs/tutorial/background-tasks.md"
+  ],
+  "notes": "Hinglish, FastAPI"
+ },
+ {
+  "id": 18,
+  "language": "hinglish",
+  "query": "Le Chatelier ka principle kya hai?",
+  "correct_docs": [
+   "openstax-chemistry-2e/chapter-13-fundamental-equilibrium-concepts"
+  ],
+  "notes": "Hinglish, Chemistry textbook (replaced)"
+ },
+ {
+  "id": 19,
+  "language": "hindi",
+  "query": "FastAPI में CORS कैसे enable करें?",
+  "correct_docs": [
+   "fastapi-docs/tutorial/cors.md"
+  ],
+  "notes": "Hindi (Devanagari), FastAPI"
+ },
+ {
+  "id": 20,
+  "language": "en",
+  "query": "How does Matryoshka-Adaptor produce smaller embedding dimensions?",
+  "correct_docs": [
+   "arxiv-papers/2407.20243"
+  ],
+  "notes": "English, paper (replaced)"
+ }
+]

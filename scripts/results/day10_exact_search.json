@@ -1,0 +1,788 @@
+{
+  "search": "exact",
+  "k": 5,
+  "hits": 19,
+  "recall": 0.95,
+  "queries": [
+    {
+      "id": 1,
+      "language": "en",
+      "query": "How do I define a path parameter in FastAPI?",
+      "hit_at_5": true,
+      "first_correct_rank": 3,
+      "top5": [
+        {
+          "chunk_id": "fc52bb49-f8b3-596a-9ec8-9e04972617e2",
+          "document": "fastapi-docs/tutorial/query-params.md",
+          "heading": "Query Parameters > Multiple path and query parameters",
+          "score": 0.7603
+        },
+        {
+          "chunk_id": "7d5a5c75-55de-5448-ad97-e4b519c68dd6",
+          "document": "fastapi-docs/tutorial/path-params-numeric-validations.md",
+          "heading": "Path Parameters and Numeric Validations",
+          "score": 0.7543
+        },
+        {
+          "chunk_id": "f488f81f-c4b2-5d25-b731-3a8bd4122af3",
+          "document": "fastapi-docs/tutorial/path-params.md",
+          "heading": "Path Parameters > Path parameters containing paths",
+          "score": 0.6954
+        },
+        {
+          "chunk_id": "ba83bc67-b61f-5a82-8d71-9449c06aad25",
+          "document": "fastapi-docs/tutorial/bigger-applications.md",
+          "heading": "Bigger Applications - Multiple Files > The main `FastAPI` > Include a *path operation*",
+          "score": 0.6832
+        },
+        {
+          "chunk_id": "76453177-668a-5ee8-8395-f9253fdb01fb",
+          "document": "fastapi-docs/advanced/using-request-directly.md",
+          "heading": "Using the Request Directly > Use the `Request` object directly",
+          "score": 0.6804
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "language": "en",
+      "query": "How do I validate request body fields with Pydantic?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "24b793df-7219-5e0b-9a75-7a9508e7108b",
+          "document": "fastapi-docs/tutorial/body-fields.md",
+          "heading": "Body - Fields",
+          "score": 0.6973
+        },
+        {
+          "chunk_id": "c6e0048a-b0fe-5c58-a555-9557315b7430",
+          "document": "pydantic-docs/concepts/models.md",
+          "heading": "Validating data",
+          "score": 0.6885
+        },
+        {
+          "chunk_id": "896f220a-931b-522e-a1ff-c7ec65daf3a6",
+          "document": "fastapi-docs/tutorial/request-form-models.md",
+          "heading": "Form Models > Check the Docs",
+          "score": 0.6774
+        },
+        {
+          "chunk_id": "68619c39-ffc7-5b9b-8209-e26ad4386ccd",
+          "document": "pydantic-docs/index.md",
+          "heading": "Pydantic Validation",
+          "score": 0.662
+        },
+        {
+          "chunk_id": "5f4a9948-521d-569d-a49b-29e9aa9486e0",
+          "document": "pydantic-docs/examples/requests.md",
+          "heading": "Examples/Requests",
+          "score": 0.658
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "language": "en",
+      "query": "What is dependency injection in FastAPI?",
+      "hit_at_5": true,
+      "first_correct_rank": 2,
+      "top5": [
+        {
+          "chunk_id": "968500a7-bddd-5675-a6dd-d4031889431b",
+          "document": "fastapi-docs/features.md",
+          "heading": "Features > FastAPI features > Dependency Injection",
+          "score": 0.8595
+        },
+        {
+          "chunk_id": "cb96070a-76bb-5db6-a169-e8e169c24b2d",
+          "document": "fastapi-docs/tutorial/dependencies/index.md",
+          "heading": "Dependencies > What is \"Dependency Injection\"",
+          "score": 0.8174
+        },
+        {
+          "chunk_id": "2ba45739-5fd9-582c-b636-45ea65f5c805",
+          "document": "fastapi-docs/tutorial/dependencies/index.md",
+          "heading": "Dependencies",
+          "score": 0.729
+        },
+        {
+          "chunk_id": "93024a4f-fd42-5530-838d-024f3599ed74",
+          "document": "fastapi-docs/tutorial/dependencies/index.md",
+          "heading": "Dependencies > Integrated with OpenAPI",
+          "score": 0.6941
+        },
+        {
+          "chunk_id": "42eb7f25-f169-576f-bb58-5abb65e46201",
+          "document": "fastapi-docs/reference/dependencies.md",
+          "heading": "Dependencies - `Depends()` and `Security()`",
+          "score": 0.6594
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "language": "en",
+      "query": "How do I return a streaming response from a FastAPI route?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "63da780d-39c7-5e50-97b1-e89ad860073b",
+          "document": "fastapi-docs/advanced/stream-data.md",
+          "heading": "Stream Data > A `StreamingResponse` with `yield`",
+          "score": 0.7286
+        },
+        {
+          "chunk_id": "bb09561e-6d0d-5280-838d-7b866ad45553",
+          "document": "fastapi-docs/advanced/custom-response.md",
+          "heading": "Custom Response - HTML, Stream, File, others",
+          "score": 0.6919
+        },
+        {
+          "chunk_id": "a5fcfc0b-70b0-518d-b754-6c533880134a",
+          "document": "fastapi-docs/reference/responses.md",
+          "heading": "Custom Response Classes - File, HTML, Redirect, Streaming, etc.",
+          "score": 0.688
+        },
+        {
+          "chunk_id": "326df4f3-691d-5c7f-bfc8-808ecce79874",
+          "document": "fastapi-docs/advanced/response-directly.md",
+          "heading": "Return a Response Directly",
+          "score": 0.6758
+        },
+        {
+          "chunk_id": "c5b75237-70f0-51e1-b8ee-372820dce96b",
+          "document": "fastapi-docs/advanced/stream-data.md",
+          "heading": "Stream Data > A `StreamingResponse` with `yield` > Non-async *path operation functions*",
+          "score": 0.6667
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "language": "en",
+      "query": "How do I write an async endpoint in FastAPI?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "617af79c-805f-50be-83f7-2b922500eed9",
+          "document": "fastapi-docs/async.md",
+          "heading": "Concurrency and async / await > Very Technical Details > Other utility functions",
+          "score": 0.6547
+        },
+        {
+          "chunk_id": "3ae60ac5-62db-5dc2-ae37-a4c2a0fbcf0a",
+          "document": "fastapi-docs/advanced/async-tests.md",
+          "heading": "Async Tests > Other Asynchronous Function Calls",
+          "score": 0.6455
+        },
+        {
+          "chunk_id": "6fbdea34-bc9e-55cb-af2f-0906d37fb99c",
+          "document": "fastapi-docs/index.md",
+          "heading": "FastAPI > Example",
+          "score": 0.6452
+        },
+        {
+          "chunk_id": "e78151c4-546b-52b0-ae8c-5bb5c91e97ec",
+          "document": "fastapi-docs/async.md",
+          "heading": "Concurrency and async / await",
+          "score": 0.6336
+        },
+        {
+          "chunk_id": "112d4369-fdd0-51f8-926e-91f95ad99f4b",
+          "document": "fastapi-docs/tutorial/first-steps.md",
+          "heading": "First Steps > Recap, step by step > Step 4: define the **path operation function**",
+          "score": 0.6266
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "language": "en",
+      "query": "How do I add middleware to a FastAPI application?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "b98ec396-f52a-564b-97e2-14a8c020c742",
+          "document": "fastapi-docs/advanced/middleware.md",
+          "heading": "Advanced Middleware",
+          "score": 0.7964
+        },
+        {
+          "chunk_id": "5063b26d-8b04-56a0-a681-506ca879d8c3",
+          "document": "fastapi-docs/tutorial/middleware.md",
+          "heading": "Middleware",
+          "score": 0.7726
+        },
+        {
+          "chunk_id": "eeb47dc9-b7ff-5149-92f5-b6f3fda3b141",
+          "document": "fastapi-docs/reference/middleware.md",
+          "heading": "Middleware",
+          "score": 0.6982
+        },
+        {
+          "chunk_id": "170f9a25-5ce1-5b23-921b-1b2cba321b57",
+          "document": "fastapi-docs/advanced/middleware.md",
+          "heading": "Advanced Middleware > Integrated middlewares",
+          "score": 0.6965
+        },
+        {
+          "chunk_id": "1be30c52-2b11-587e-9885-b6ae73ff9f7e",
+          "document": "fastapi-docs/advanced/wsgi.md",
+          "heading": "Including WSGI - Flask, Django, others",
+          "score": 0.667
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "language": "en",
+      "query": "How does Pydantic handle field validation errors?",
+      "hit_at_5": true,
+      "first_correct_rank": 3,
+      "top5": [
+        {
+          "chunk_id": "757da1a8-f855-595f-bafa-5ee9e1499b19",
+          "document": "pydantic-docs/errors/errors.md",
+          "heading": "Errors/Errors",
+          "score": 0.7979
+        },
+        {
+          "chunk_id": "491c1ebc-5a57-5119-ae3e-ce94d0d17cc4",
+          "document": "pydantic-docs/concepts/models.md",
+          "heading": "Error handling",
+          "score": 0.7695
+        },
+        {
+          "chunk_id": "5bd1c114-b00c-5717-8c55-c17f68c3bc97",
+          "document": "pydantic-docs/errors/validation_errors.md",
+          "heading": "`string_too_short`",
+          "score": 0.734
+        },
+        {
+          "chunk_id": "9c98f75e-2c98-59c9-a320-6be5aca11d8d",
+          "document": "pydantic-docs/concepts/fields.md",
+          "heading": "Validate default values",
+          "score": 0.734
+        },
+        {
+          "chunk_id": "c790b3a8-121f-599d-b910-a3c678186bb5",
+          "document": "pydantic-docs/errors/validation_errors.md",
+          "heading": "`uuid_version`",
+          "score": 0.733
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "language": "en",
+      "query": "What is a Pydantic BaseModel and how do I use it?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "a033fb5c-3073-536e-af2a-0a4fe0190493",
+          "document": "pydantic-docs/concepts/models.md",
+          "heading": "Basic model usage",
+          "score": 0.7225
+        },
+        {
+          "chunk_id": "b1a01a10-08bc-5951-9fcc-dfa47be1b58b",
+          "document": "pydantic-docs/api/base_model.md",
+          "heading": "Api/Base Model",
+          "score": 0.7173
+        },
+        {
+          "chunk_id": "feca29d3-3f42-5af4-84a2-be19a9db5509",
+          "document": "pydantic-docs/concepts/models.md",
+          "heading": "Basic model usage > Model methods and properties",
+          "score": 0.7165
+        },
+        {
+          "chunk_id": "dae4c0a5-85e3-5a52-a2ce-913d97097b36",
+          "document": "pydantic-docs/concepts/models.md",
+          "heading": "Abstract base classes",
+          "score": 0.6945
+        },
+        {
+          "chunk_id": "aaf162bb-cf49-583a-8e55-a08cb47aefcd",
+          "document": "pydantic-docs/internals/architecture.md",
+          "heading": "Model definition",
+          "score": 0.6863
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "language": "en",
+      "query": "How do I use computed fields in Pydantic v2?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "4b0fe0a9-add4-5181-9d04-c84de8e996b6",
+          "document": "pydantic-docs/concepts/fields.md",
+          "heading": "The `computed_field` decorator",
+          "score": 0.719
+        },
+        {
+          "chunk_id": "7e4855d5-808b-5cec-bdaf-00a2f9a6339b",
+          "document": "pydantic-docs/concepts/fields.md",
+          "heading": "Field Representation",
+          "score": 0.6679
+        },
+        {
+          "chunk_id": "24b793df-7219-5e0b-9a75-7a9508e7108b",
+          "document": "fastapi-docs/tutorial/body-fields.md",
+          "heading": "Body - Fields",
+          "score": 0.6634
+        },
+        {
+          "chunk_id": "82ea4a20-29e3-5385-9ccc-12b87ddc5c60",
+          "document": "pydantic-docs/concepts/fields.md",
+          "heading": "Concepts/Fields",
+          "score": 0.6327
+        },
+        {
+          "chunk_id": "500353a0-5e66-5abb-9431-459fdbcacaf0",
+          "document": "pydantic-docs/concepts/alias.md",
+          "heading": "Using alias generators",
+          "score": 0.6234
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "language": "en",
+      "query": "How do I configure Pydantic settings from environment variables?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "5961585d-d8bb-5a1d-a1f1-ee8a80eb1f01",
+          "document": "fastapi-docs/advanced/settings.md",
+          "heading": "Settings and Environment Variables > Pydantic `Settings`",
+          "score": 0.8442
+        },
+        {
+          "chunk_id": "d932c5df-defc-5a47-b2b4-bbedabecd48d",
+          "document": "fastapi-docs/advanced/settings.md",
+          "heading": "Settings and Environment Variables > Reading a `.env` file",
+          "score": 0.8265
+        },
+        {
+          "chunk_id": "00b83545-9b34-5441-ac09-be7023c4e22f",
+          "document": "fastapi-docs/advanced/settings.md",
+          "heading": "Settings and Environment Variables > Pydantic `Settings` > Use the `settings`",
+          "score": 0.7816
+        },
+        {
+          "chunk_id": "2ae3e935-4156-5de0-b209-fd87db3c73c6",
+          "document": "fastapi-docs/advanced/settings.md",
+          "heading": "Settings and Environment Variables > Pydantic `Settings` > Create the `Settings` object",
+          "score": 0.74
+        },
+        {
+          "chunk_id": "2083dcc9-715d-52f9-909e-0d76db4ea828",
+          "document": "fastapi-docs/advanced/settings.md",
+          "heading": "Settings and Environment Variables > Reading a `.env` file > The `.env` file",
+          "score": 0.7312
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "language": "en",
+      "query": "What is retrieval-augmented generation and why does it reduce hallucinations?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "dd1d4bad-9b57-5dff-9cc2-35e4d4fe4628",
+          "document": "arxiv-papers/2504.08748",
+          "heading": "A Survey of Multimodal Retrieval-Augmented Generation > (opening)",
+          "score": 0.5579
+        },
+        {
+          "chunk_id": "f947bf1f-504b-5897-a030-9ae097e356eb",
+          "document": "arxiv-papers/2504.08748",
+          "heading": "A Survey of Multimodal Retrieval-Augmented Generation > 1 Introduction",
+          "score": 0.5488
+        },
+        {
+          "chunk_id": "73bed1c5-2b21-5beb-9059-d9b84b742029",
+          "document": "arxiv-papers/2601.05264",
+          "heading": "Engineering the RAG Stack: A Comprehensive Review of the Architecture and Trust Frameworks for Retrieval-Augmented Generation Systems > Evaluation and Benchmarking Framework > Retrieval Quality Assessment",
+          "score": 0.5335
+        },
+        {
+          "chunk_id": "0f9352d2-7aa7-56fe-a36d-2c067f221124",
+          "document": "arxiv-papers/2504.08748",
+          "heading": "A Survey of Multimodal Retrieval-Augmented Generation > 8 Conclusion",
+          "score": 0.4979
+        },
+        {
+          "chunk_id": "a4353bc9-c7ed-582c-b274-08f7f3319773",
+          "document": "arxiv-papers/2504.08748",
+          "heading": "A Survey of Multimodal Retrieval-Augmented Generation > 2 Overview of MRAG > 2.3 MRAG3.0 > part 1 of 2",
+          "score": 0.485
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "language": "en",
+      "query": "How does the size of a text chunk affect retrieval-augmented generation?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "52fe0460-7dc4-5450-9193-d399e93ea221",
+          "document": "arxiv-papers/2607.24767",
+          "heading": "The Effect of Text Chunk Size on Retrieval-Augmented Generation Performance > pages 5-6",
+          "score": 0.7959
+        },
+        {
+          "chunk_id": "d34237db-cb64-5ec1-bfff-6db17f2d2433",
+          "document": "arxiv-papers/2607.24767",
+          "heading": "The Effect of Text Chunk Size on Retrieval-Augmented Generation Performance > pages 1-2",
+          "score": 0.7771
+        },
+        {
+          "chunk_id": "f9b1b9ff-a04c-5efa-8fe8-69458351a77b",
+          "document": "arxiv-papers/2607.24767",
+          "heading": "The Effect of Text Chunk Size on Retrieval-Augmented Generation Performance > pages 7-8",
+          "score": 0.7667
+        },
+        {
+          "chunk_id": "10f3309f-86d6-56a7-b95b-9cc10c7de5b0",
+          "document": "arxiv-papers/2607.24767",
+          "heading": "The Effect of Text Chunk Size on Retrieval-Augmented Generation Performance > pages 3-4",
+          "score": 0.7612
+        },
+        {
+          "chunk_id": "240b25b2-9d95-5fa4-8d6c-6f251e2ba28e",
+          "document": "arxiv-papers/2607.24767",
+          "heading": "The Effect of Text Chunk Size on Retrieval-Augmented Generation Performance > pages 9-10",
+          "score": 0.692
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "language": "en",
+      "query": "What is the solubility product constant (Ksp) of silver chloride?",
+      "hit_at_5": true,
+      "first_correct_rank": 2,
+      "top5": [
+        {
+          "chunk_id": "01196960-d195-5bd5-9d1e-eaacd07414c8",
+          "document": "openstax-chemistry-2e/chapter-15-equilibria-of-other-reaction-classes",
+          "heading": "Chapter 15 Equilibria of Other Reaction Classes > Introduction",
+          "score": 0.737
+        },
+        {
+          "chunk_id": "cd23b12e-6f38-58d4-9e58-526262783aa9",
+          "document": "openstax-chemistry-2e/appendix-j-solubility-products",
+          "heading": "Appendix J Solubility Products > pages 1123-1124",
+          "score": 0.6301
+        },
+        {
+          "chunk_id": "b40ca757-5c9f-55d4-8f86-a6303f8ff8f4",
+          "document": "openstax-chemistry-2e/appendix-j-solubility-products",
+          "heading": "Appendix J Solubility Products > pages 1121-1122",
+          "score": 0.5501
+        },
+        {
+          "chunk_id": "f22add5e-1bf4-59ee-9304-4be60c6c89dc",
+          "document": "openstax-chemistry-2e/chapter-15-equilibria-of-other-reaction-classes",
+          "heading": "Chapter 15 Equilibria of Other Reaction Classes > 15.1 Precipitation and Dissolution > part 1 of 3",
+          "score": 0.5399
+        },
+        {
+          "chunk_id": "ea028266-33d3-549b-93e7-0904290d71b9",
+          "document": "openstax-chemistry-2e/appendix-j-solubility-products",
+          "heading": "Appendix J Solubility Products > pages 1119-1120",
+          "score": 0.5147
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "language": "en",
+      "query": "What is the standard enthalpy of formation of liquid water?",
+      "hit_at_5": false,
+      "first_correct_rank": null,
+      "top5": [
+        {
+          "chunk_id": "19a9265f-fa07-5007-b4e9-2455ea8d4be7",
+          "document": "openstax-chemistry-2e/chapter-5-thermochemistry",
+          "heading": "Chapter 5 Thermochemistry > 5.3 Enthalpy > part 4 of 5",
+          "score": 0.5488
+        },
+        {
+          "chunk_id": "81e5b4f3-9f5c-56e1-a82b-4fedd6fe8c3e",
+          "document": "openstax-chemistry-2e/chapter-7-chemical-bonding-and-molecular-geometry",
+          "heading": "Chapter 7 Chemical Bonding and Molecular Geometry > 7.5 Strengths of Ionic and Covalent Bonds > part 2 of 3",
+          "score": 0.5361
+        },
+        {
+          "chunk_id": "11565915-d1a1-5579-a5d3-5484cc997bf5",
+          "document": "openstax-chemistry-2e/chapter-10-liquids-and-solids",
+          "heading": "Chapter 10 Liquids and Solids > 10.3 Phase Transitions > part 3 of 4",
+          "score": 0.5105
+        },
+        {
+          "chunk_id": "1a7ee512-bd47-53af-a9de-e15db7c66ed9",
+          "document": "openstax-chemistry-2e/appendix-e-water-properties",
+          "heading": "Appendix E Water Properties > pages 1091-1092",
+          "score": 0.5095
+        },
+        {
+          "chunk_id": "df2f1089-021e-5052-bd1f-03fcc40d62cd",
+          "document": "openstax-chemistry-2e/chapter-5-thermochemistry",
+          "heading": "Chapter 5 Thermochemistry > 5.3 Enthalpy > part 3 of 5",
+          "score": 0.4838
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "language": "hinglish",
+      "query": "FastAPI mein OAuth2 password bearer kaise use karte hain?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "f25c11cf-18fd-505e-887f-b6c2e52ac648",
+          "document": "fastapi-docs/tutorial/security/simple-oauth2.md",
+          "heading": "Simple OAuth2 with Password and Bearer > Code to get the `username` and `password`",
+          "score": 0.7344
+        },
+        {
+          "chunk_id": "fa05788d-63d1-50db-8981-efb149ca69d5",
+          "document": "fastapi-docs/tutorial/security/oauth2-jwt.md",
+          "heading": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Install `pwdlib`",
+          "score": 0.708
+        },
+        {
+          "chunk_id": "72444c05-2e90-560a-a4e2-225a4c1a08ba",
+          "document": "fastapi-docs/tutorial/security/first-steps.md",
+          "heading": "Security - First Steps > **FastAPI**'s `OAuth2PasswordBearer`",
+          "score": 0.7069
+        },
+        {
+          "chunk_id": "ac83c03a-6e91-56c6-93b7-490245e9590a",
+          "document": "fastapi-docs/tutorial/security/first-steps.md",
+          "heading": "Security - First Steps > **FastAPI**'s `OAuth2PasswordBearer` > Use it",
+          "score": 0.6744
+        },
+        {
+          "chunk_id": "75c3efc3-15f7-5afa-b265-d70084306b51",
+          "document": "fastapi-docs/tutorial/security/oauth2-jwt.md",
+          "heading": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Recap",
+          "score": 0.6646
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "language": "hinglish",
+      "query": "Pydantic model mein optional field kaise banate hain?",
+      "hit_at_5": true,
+      "first_correct_rank": 2,
+      "top5": [
+        {
+          "chunk_id": "9eded235-bdd1-5b8e-b5fc-cd8e9f3e9d67",
+          "document": "pydantic-docs/examples/dynamic_models.md",
+          "heading": "Examples/Dynamic Models",
+          "score": 0.7724
+        },
+        {
+          "chunk_id": "46c3edfc-e449-57eb-a3e5-54c6ebb57603",
+          "document": "fastapi-docs/tutorial/body.md",
+          "heading": "Request Body > Import Pydantic's `BaseModel`",
+          "score": 0.7309
+        },
+        {
+          "chunk_id": "82ea4a20-29e3-5385-9ccc-12b87ddc5c60",
+          "document": "pydantic-docs/concepts/fields.md",
+          "heading": "Concepts/Fields",
+          "score": 0.7128
+        },
+        {
+          "chunk_id": "458a4a5d-31d3-5c79-8e57-188d2e86febe",
+          "document": "pydantic-docs/integrations/visual_studio_code.md",
+          "heading": "Adding a default with `Field`",
+          "score": 0.6951
+        },
+        {
+          "chunk_id": "2f6161e6-a79f-5516-b876-85e4993c850c",
+          "document": "fastapi-docs/tutorial/body-fields.md",
+          "heading": "Body - Fields > Add extra information",
+          "score": 0.6801
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "language": "hinglish",
+      "query": "FastAPI ke saath background tasks kaise chalate hain?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "dfb2a609-9aa0-5069-8a84-8dedbc883b30",
+          "document": "fastapi-docs/tutorial/background-tasks.md",
+          "heading": "Background Tasks > Caveat",
+          "score": 0.7795
+        },
+        {
+          "chunk_id": "4171d522-7c9c-5068-9fb9-b0ed6f8e9b7d",
+          "document": "fastapi-docs/tutorial/background-tasks.md",
+          "heading": "Background Tasks > Technical Details",
+          "score": 0.7391
+        },
+        {
+          "chunk_id": "33a471f4-025b-593d-977c-ac963a92cf0e",
+          "document": "fastapi-docs/tutorial/background-tasks.md",
+          "heading": "Background Tasks > Dependency Injection",
+          "score": 0.6984
+        },
+        {
+          "chunk_id": "7203ded6-a8cc-5947-b795-0fbd9be22302",
+          "document": "fastapi-docs/advanced/advanced-dependencies.md",
+          "heading": "Advanced Dependencies > Dependencies with `yield`, `HTTPException`, `except` and Background Tasks > Background Tasks and Dependencies with `yield`, Technical Details",
+          "score": 0.6515
+        },
+        {
+          "chunk_id": "e5c42644-3e39-5382-a701-4b7268c354e7",
+          "document": "fastapi-docs/tutorial/background-tasks.md",
+          "heading": "Background Tasks > Using `BackgroundTasks`",
+          "score": 0.6444
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "language": "hinglish",
+      "query": "Le Chatelier ka principle kya hai?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "9a21c305-da66-57d0-b39b-dd2f21b9f576",
+          "document": "openstax-chemistry-2e/chapter-13-fundamental-equilibrium-concepts",
+          "heading": "Chapter 13 Fundamental Equilibrium Concepts > 13.3 Shifting Equilibria: Le Châtelier’s Principle > part 2 of 3",
+          "score": 0.3588
+        },
+        {
+          "chunk_id": "807cc4f8-c1fe-5bd8-8026-d518a5c3939d",
+          "document": "openstax-chemistry-2e/chapter-13-fundamental-equilibrium-concepts",
+          "heading": "Chapter 13 Fundamental Equilibrium Concepts > (opening)",
+          "score": 0.3324
+        },
+        {
+          "chunk_id": "385e0774-152f-5c0a-a735-8116f669cfaf",
+          "document": "openstax-chemistry-2e/chapter-13-fundamental-equilibrium-concepts",
+          "heading": "Chapter 13 Fundamental Equilibrium Concepts > 13.3 Shifting Equilibria: Le Châtelier’s Principle > part 1 of 3",
+          "score": 0.3115
+        },
+        {
+          "chunk_id": "4bd38da2-a02b-53fc-bd00-33a6e42e5fb0",
+          "document": "openstax-chemistry-2e/chapter-13-fundamental-equilibrium-concepts",
+          "heading": "Chapter 13 Fundamental Equilibrium Concepts > 13.3 Shifting Equilibria: Le Châtelier’s Principle > part 3 of 3",
+          "score": 0.304
+        },
+        {
+          "chunk_id": "73c1251e-471b-53f1-bbd5-e4aa134d0dd3",
+          "document": "openstax-chemistry-2e/chapter-13-fundamental-equilibrium-concepts",
+          "heading": "Chapter 13 Fundamental Equilibrium Concepts > Key Equations",
+          "score": 0.2819
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "language": "hindi",
+      "query": "FastAPI में CORS कैसे enable करें?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "25cc1207-8af1-5e8d-a5bb-9148ebce0dde",
+          "document": "fastapi-docs/tutorial/cors.md",
+          "heading": "CORS (Cross-Origin Resource Sharing) > Use `CORSMiddleware`",
+          "score": 0.7421
+        },
+        {
+          "chunk_id": "0b114912-dbee-5038-a09a-00ec6c03491c",
+          "document": "fastapi-docs/tutorial/cors.md",
+          "heading": "CORS (Cross-Origin Resource Sharing) > Use `CORSMiddleware` > Simple requests",
+          "score": 0.6101
+        },
+        {
+          "chunk_id": "3fd2d26a-2977-5678-8edf-5f707741c3e9",
+          "document": "fastapi-docs/advanced/behind-a-proxy.md",
+          "heading": "Behind a Proxy > Additional servers",
+          "score": 0.5955
+        },
+        {
+          "chunk_id": "129f8c3a-3493-5b86-ab5f-38a1d9197950",
+          "document": "fastapi-docs/advanced/behind-a-proxy.md",
+          "heading": "Behind a Proxy > Proxy Forwarded Headers > Redirects with HTTPS",
+          "score": 0.5923
+        },
+        {
+          "chunk_id": "6af02ba4-1e45-5c45-a118-1f97c587c4a1",
+          "document": "fastapi-docs/fastapi-cli.md",
+          "heading": "FastAPI CLI > `fastapi run`",
+          "score": 0.583
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "language": "en",
+      "query": "How does Matryoshka-Adaptor produce smaller embedding dimensions?",
+      "hit_at_5": true,
+      "first_correct_rank": 1,
+      "top5": [
+        {
+          "chunk_id": "fc8c168d-68cb-55b4-b450-c37c29d74fae",
+          "document": "arxiv-papers/2407.20243",
+          "heading": "Matryoshka-Adaptor: Unsupervised and Supervised Tuning for Smaller Embedding Dimensions > Unsupervised Matryoshka-Adaptor",
+          "score": 0.7367
+        },
+        {
+          "chunk_id": "a4a502c2-99e8-5cdf-9c11-f46cbd324241",
+          "document": "arxiv-papers/2407.20243",
+          "heading": "Matryoshka-Adaptor: Unsupervised and Supervised Tuning for Smaller Embedding Dimensions > Conclusions",
+          "score": 0.724
+        },
+        {
+          "chunk_id": "3820beae-3cc3-5bef-a141-34e8c682dee7",
+          "document": "arxiv-papers/2407.20243",
+          "heading": "Matryoshka-Adaptor: Unsupervised and Supervised Tuning for Smaller Embedding Dimensions > Detailed Experimental Results on Supervised Settings > Supervised Matryoshka-Adaptor with OpenAI text-embedding-3-small models",
+          "score": 0.72
+        },
+        {
+          "chunk_id": "4ad0ecf4-9fbc-5952-96ad-1fdac1cbad9f",
+          "document": "arxiv-papers/2407.20243",
+          "heading": "Matryoshka-Adaptor: Unsupervised and Supervised Tuning for Smaller Embedding Dimensions > Detailed Experimental Results on Unsupervised Settings",
+          "score": 0.7189
+        },
+        {
+          "chunk_id": "12ce4e08-d37e-5c5d-b128-fbe77e46d873",
+          "document": "arxiv-papers/2407.20243",
+          "heading": "Matryoshka-Adaptor: Unsupervised and Supervised Tuning for Smaller Embedding Dimensions > Detailed Experimental Results on Supervised Settings > Supervised Matryoshka-Adaptor with OpenAI text-embedding-3-large models",
+          "score": 0.7088
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+query vectors: 0 from the API, 20 from the file
+store: qdrant
+before: tenants, users, documents, chunks = (4, 4, 239, 2097)
+before: Qdrant points = 2097
+
+[A] Task 6: tenant 2 has ZERO documents (225 vectors)
+  PASS  qdrant: rows returned to tenant 2                          0 rows
+  PASS  HTTP, tenant 2: How do I define a path parameter in Fast   0 results
+  PASS  HTTP, tenant 2: FastAPI में CORS कैसे enable करें?         0 results
+  PASS  HTTP, tenant 2: What is the solubility product constant    0 results
+
+[B] Task 6: tenant 2 now owns copies of 5 corpus chunks
+  PASS  qdrant: tenant 2 gets only its own chunks                  0 foreign rows; rows per search [5]
+  PASS  qdrant: the Corpus Tenant never gets tenant 2's copies     0 leaked rows in 11250
+  PASS  HTTP, both tenants: How do I define a path parameter in    tenant 2: 5 own; corpus: 50, 0 of tenant 2
+  PASS  HTTP, both tenants: FastAPI में CORS कैसे enable करें?     tenant 2: 5 own; corpus: 50, 0 of tenant 2
+  PASS  HTTP, both tenants: What is the solubility product const   tenant 2: 5 own; corpus: 50, 0 of tenant 2
+
+[C] Task 7: delete the document
+  PASS  chunks of the document before the delete                   5 rows
+  PASS  Qdrant points of the document before the delete            5 points
+  PASS  DELETE by another tenant is refused and removes nothing    HTTP 404; 5 rows left
+  PASS  DELETE by the owner                                        HTTP 204
+  PASS  chunk rows (and vectors) of the document                   0 rows
+  PASS  Qdrant points of the document after the delete             0 points
+  PASS  qdrant: searching with the deleted vectors                 0 rows
+  PASS  HTTP, tenant 2: How do I define a path parameter in Fast   0 results
+  PASS  HTTP, tenant 2: FastAPI में CORS कैसे enable करें?         0 results
+  PASS  HTTP, tenant 2: What is the solubility product constant    0 results
+  PASS  the Corpus Tenant's chunks are untouched                   2097 rows
+  PASS  Qdrant has the same points as before                       2097
+
+after clean-up: tenants, users, documents, chunks = (4, 4, 239, 2097)
+  PASS  the database counts are the same as before                 (4, 4, 239, 2097) -> (4, 4, 239, 2097)
+
+ALL CHECKS PASSED

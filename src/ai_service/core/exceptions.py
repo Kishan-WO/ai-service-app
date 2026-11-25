@@ -135,3 +135,10 @@ class InvalidDocumentError(AppError):
     status_code = 422
     code = "INVALID_DOCUMENT"
     message = "The file could not be read as a document."
+
+
+class VectorStoreError(AppError):
+    status_code = 503
+    code = "VECTOR_STORE_UNAVAILABLE"
+    message = "The vector store is not available. Please try again."
+
