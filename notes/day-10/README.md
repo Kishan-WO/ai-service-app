@@ -15,6 +15,7 @@
 | 6 | Isolation test: tenant 2 never gets tenant 1's chunks, also with zero documents | done: `test_tenant_isolation` (SQLite) and on PostgreSQL + HTTP (Step 12) |
 | 7 | Delete a document and prove its vectors disappear | done: `test_document_cascade_deletion` (SQLite) and through `DELETE /documents/{id}` on PostgreSQL (Step 12) |
 | Notes | pgvector against Qdrant note | done: [pgvector-vs-qdrant.md](pgvector-vs-qdrant.md) (Step 19) |
+| Notes | Tokenizer LRU cache explanation | done: [tokenizer-lru-cache.md](tokenizer-lru-cache.md) |
 
 ## Step log
 

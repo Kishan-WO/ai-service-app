@@ -15,6 +15,25 @@ My build log for Day 11, written step by step with the commands I ran and what c
 | 5 | Split a table over two chunks, ask a question that needs both halves, and show that retrieval returns only half | **done, with a caveat** (Steps 36, 37): with 5 results search found **none** of either table; with the first 10 (looked at afterwards) it had 5 of 7 and 8 of 22 rows |
 | 6 | Ingest the whole corpus again and prove there are no duplicate chunks | **done**: 234 documents, 4,683 chunks; the second run left the chunks table identical (Steps 31 to 33) |
 | Notes | A catalogue of parsing failures | **done** (Step 38): [`parsing-failure-catalogue.md`](parsing-failure-catalogue.md) |
+| Notes | Ingestion jobs model & status transitions | [`ingestion_jobs.md`](ingestion_jobs.md) |
+| Notes | Document cleaning pipeline & helpers | [`clean_document_explanation.md`](clean_document_explanation.md) |
+| Notes | Chunk stage orchestrator & page mapping | [`chunked document explanation.md`](<chunked document explanation.md>) |
+| Notes | Structure-aware Markdown chunker | [`markdown_chunker.md`](markdown_chunker.md) |
+| Notes | Tokenizer loading & LRU cache | [`tokenizer-lru-cache.md`](tokenizer-lru-cache.md) |
+| Notes | Ingestion request, advisory locks & identity | [`ingest_request_explanation.md`](ingest_request_explanation.md) |
+| Notes | Secure URL fetch & SSRF protection | [`url_fetch_ssrf_protection.md`](url_fetch_ssrf_protection.md) |
+| Notes | Job queue architecture, locks & lifecycle | [`job_queue_architecture.md`](job_queue_architecture.md) |
+
+### Detailed Component & Architecture Notes
+- [**Parsing Failure Catalogue**](parsing-failure-catalogue.md): Comprehensive catalog of edge cases and parsing breakdowns across 5 difficult PDFs.
+- [**Secure URL Fetching & SSRF Protection**](url_fetch_ssrf_protection.md): IP pinning against DNS rebinding, public IP checks, manual redirect security, and decompression bomb prevention (`url_fetch.py`).
+- [**Job Queue Architecture & Lifecycle**](job_queue_architecture.md): FastAPI lifespan injection, mutex lock lazy connection initialization, fail-fast timeouts, and method-to-function delegation (`job_queue.py`, `deps.py`, `main.py`).
+- [**Ingestion Request & Document Identity**](ingest_request_explanation.md): PostgreSQL advisory locks (`pg_advisory_xact_lock`), document identity resolution, duplicate checks, and binary file storage (`ingest_request.py`).
+- [**Ingestion Jobs Architecture**](ingestion_jobs.md): Data model, job state machine, SQL-level atomic status transitions, and worker concurrency rules (`ingestion_job.py` and `ingestion_jobs.py`).
+- [**Document Cleaning Pipeline**](clean_document_explanation.md): Deep-dive into character normalization, ligature expansion, PDF header/footer removal, and hyphen-joining (`cleaning.py`).
+- [**Chunk Stage Orchestration**](<chunked document explanation.md>): Orchestration of document title resolution, chunker selection, contextual headers, and PDF page span tracking (`chunk_stage.py`).
+- [**Structure-Aware Markdown Chunker**](markdown_chunker.md): 4-stage pipeline for block extraction, section hierarchy tracking, and code/table preserving chunking (`chunking.py`).
+- [**Tokenizer Loading & LRU Caching**](tokenizer-lru-cache.md): Memory and latency analysis of BGE-M3 tokenizer caching via `@lru_cache` (`tokenizer.py`).
 
 **"Done when" is met** (Step 33): running ingestion again on the whole corpus left the `chunks` table identical.
 
